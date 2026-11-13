@@ -32,37 +32,37 @@
 
     body {
       font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-      background: #f1f5f9;
-      background-image:
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(49, 46, 129, 0.08) 0px, transparent 50%);
+      background: #f8fafc;
       color: var(--text-main);
       margin: 0;
-      padding: 16px 20px;
+      padding: 0;
       line-height: 1.6;
       font-size: 13.5px;
       min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 100vh;
+      margin: 0;
       background: var(--card-bg);
-      border-radius: 20px;
-      box-shadow: var(--shadow-md);
+      border-radius: 0;
+      box-shadow: none;
       overflow: hidden;
-      border: 1px solid rgba(226, 232, 240, 0.8);
+      border: none;
     }
 
     /* ===============================================================
-       HALAMAN LOGIN & REGISTER (TAMPILAN AWAL MODERN & RESPONSIF HP)
+       HALAMAN LOGIN & REGISTER (FULL PAGE 2 KOLOM & RESPONSIF HP)
        =============================================================== */
     .auth-screen {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: stretch;
+      justify-content: stretch;
       width: 100%;
       min-height: 100vh;
       min-height: 100dvh;
@@ -71,29 +71,28 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(251, 191, 36, 0.14) 0%, transparent 40%),
-        radial-gradient(circle at 85% 80%, rgba(79, 70, 229, 0.12) 0%, transparent 45%),
-        linear-gradient(160deg, #fcfaf5 0%, #f5efe2 50%, #eef2ff 100%);
+      background: #ffffff;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       z-index: 9999;
-      padding: 28px 16px 36px;
+      padding: 0;
       margin: 0;
     }
 
     .auth-container {
       width: 100%;
-      max-width: 1040px;
-      margin: auto;
+      max-width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
+      grid-template-columns: 1.15fr 0.85fr;
       background: #ffffff;
-      border-radius: 26px;
-      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.22);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      overflow: hidden;
-      animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      overflow: visible;
+      animation: fadeIn 0.4s ease;
     }
 
     @keyframes fadeIn {
@@ -101,20 +100,20 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* KOLOM KIRI: IDENTITAS INSTANSI & INSTRUMEN */
+    /* KOLOM KIRI: IDENTITAS INSTANSI & INSTRUMEN (FULL HEIGHT) */
     .header-login-wrapper {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      gap: 18px;
-      padding: 44px 40px;
+      gap: 20px;
+      padding: 56px 6vw;
       width: 100%;
       text-align: left;
       background:
         radial-gradient(circle at 10% 15%, rgba(251, 191, 36, 0.18) 0%, transparent 45%),
         radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.14) 0%, transparent 50%),
-        linear-gradient(145deg, #fffdf9 0%, #f8f3e6 100%);
+        linear-gradient(145deg, #fffdf9 0%, #f6efe0 100%);
       border-right: 1px solid rgba(226, 232, 240, 0.85);
       position: relative;
     }
@@ -221,20 +220,30 @@
       flex-shrink: 0;
     }
 
-    /* KOLOM KANAN: FORM LOGIN / REGISTER */
+    /* KOLOM KANAN: FORM LOGIN / REGISTER (FULL HEIGHT) */
     .auth-card {
       background: linear-gradient(165deg, #1e1b4b 0%, #151338 100%);
-      padding: 40px 34px;
+      padding: 56px 5vw;
       border-radius: 0;
       box-shadow: none;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
       position: relative;
       border: none;
       overflow: hidden;
+    }
+
+    .auth-card > * {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .auth-card > .auth-badge {
+      width: auto;
     }
 
     .auth-card::before {
@@ -1288,20 +1297,21 @@
 
     @media (max-width: 768px) {
       body {
-        padding: 8px;
+        padding: 0;
         font-size: 13px;
       }
       .container {
-        border-radius: 16px;
+        border-radius: 0;
       }
       .auth-screen {
-        padding: 14px 12px 28px;
+        padding: 0;
         justify-content: flex-start;
       }
       .auth-container {
         grid-template-columns: 1fr;
-        border-radius: 20px;
-        max-width: 480px;
+        border-radius: 0;
+        max-width: 100%;
+        min-height: 100dvh;
       }
       .header-login-wrapper {
         padding: 24px 20px 20px;
@@ -1679,7 +1689,7 @@
         </div>
         <div class="identity-feature-item">
           <div class="identity-feature-icon">📑</div>
-          <span>Rekapitulasi Nasional Kanwil/UPT Bapas &amp; Lampiran Sidang TPP</span>
+          <span>Rekapitulasi Nasional Kanwil/UPT Bapas</span>
         </div>
       </div>
     </div>
@@ -1817,16 +1827,16 @@
 <div id="mainApp" style="display: none;">
   <div class="container">
 
-    <!-- BARIS ATAS: UCAPAN SELAMAT DATANG & TOMBOL LOGOUT -->
+    <!-- BARIS ATAS: UCAPAN SELAMAT DATANG & TOMBOL LOGOUT / KEMBALI -->
     <div class="screen-only topbar-user">
       <div class="topbar-user-info">
         <div class="user-avatar-dot">🛡️</div>
         <div>
           <span id="welcomeUser" style="font-weight: 700; color: #1e1b4b; font-size: 13.5px; display: block; line-height: 1.3;">Selamat Datang, Petugas</span>
-          <span style="font-size: 11px; color: #64748b; font-weight: 500;">Sesi Petugas Pembimbing Kemasyarakatan Aktif</span>
+          <span id="sessionStatusSub" style="font-size: 11px; color: #64748b; font-weight: 500;">Sesi Petugas Pembimbing Kemasyarakatan Aktif</span>
         </div>
       </div>
-      <button onclick="logout()" class="screen-only btn-logout">
+      <button id="btnLogoutTop" onclick="logout()" class="screen-only btn-logout">
         🚪 Logout
       </button>
     </div>
@@ -1903,11 +1913,15 @@
         </div>
       </div>
 
+      <div id="demoNoticeBanner" style="display: none; background: #fffbeb; border: 1px solid #fde68a; color: #92400e; padding: 12px 16px; border-radius: 12px; margin-bottom: 16px; font-size: 12.5px; font-weight: 600; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+        <span>🔒 <strong>Mode Pratinjau (Demo):</strong> Pengisian kuesioner dinonaktifkan pada sesi ini. Silakan login menggunakan akun Petugas PK untuk menginput data.</span>
+      </div>
+
       <div class="btn-group-center">
-        <button type="button" class="btn-start" onclick="pindahKeKuesioner()">Mulai Pengisian Kuesioner</button>
+        <button type="button" id="btnMulaiKuesioner" class="btn-start" onclick="pindahKeKuesioner()">Mulai Pengisian Kuesioner</button>
         <button type="button" class="btn-view-info" onclick="pindahKeInfografis()">Lihat Rekapitulasi Keseluruhan</button>
-        <button type="button" class="btn-view-info" onclick="bukaDaftarKuesionerSaya()" style="background: #0284c7; border-color: #0284c7; color: white;">📋 Daftar Kuesioner Saya</button>
-        <button type="button" class="btn-view-info" onclick="cetakFormulir()" style="background: #f8fafc; border-color: #4f46e5; color: #4f46e5;">🖨️ Cetak / Download Form</button>
+        <button type="button" id="btnDaftarSaya" class="btn-view-info" onclick="bukaDaftarKuesionerSaya()" style="background: #0284c7; border-color: #0284c7; color: white;">📋 Daftar Kuesioner Saya</button>
+        <button type="button" id="btnCetakDashboard" class="btn-view-info" onclick="cetakFormulir()" style="background: #f8fafc; border-color: #4f46e5; color: #4f46e5;">🖨️ Cetak / Download Form</button>
       </div>
     </div>
 
@@ -1919,7 +1933,7 @@
       <!-- TOMBOL NAVIGASI ATAS -->
       <div class="btn-group-center" style="margin-bottom: 24px;">
         <button type="button" class="btn-view-info" onclick="kembaliKePengenalan()">← Kembali ke Dashboard</button>
-        <button type="button" class="btn-view-info screen-only" onclick="cetakFormulir()" style="background: #f8fafc; border-color: #4f46e5; color: #4f46e5;">🖨️ Cetak / Download Form</button>
+        <button type="button" id="btnCetakFormAtas" class="btn-view-info screen-only" onclick="cetakFormulir()" style="background: #f8fafc; border-color: #4f46e5; color: #4f46e5;">🖨️ Cetak / Download Form</button>
       </div>
 
       <!-- KOP KHUSUS CETAK KERTAS/PDF -->
@@ -2550,6 +2564,76 @@
   let masterKlienData = {};
   let dataTerakhirDilihat = null;
   let loggedInNamaPK = "";
+  let isDemoMode = false;
+
+  function terapkanStatusModeDemo(aktif) {
+    isDemoMode = !!aktif;
+    const btnLogoutTop = document.getElementById('btnLogoutTop');
+    const sessionSub = document.getElementById('sessionStatusSub');
+    const demoBanner = document.getElementById('demoNoticeBanner');
+    const btnMulai = document.getElementById('btnMulaiKuesioner');
+    const btnDaftar = document.getElementById('btnDaftarSaya');
+    const btnCetakDash = document.getElementById('btnCetakDashboard');
+    const btnCetakAtas = document.getElementById('btnCetakFormAtas');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const formEl = document.getElementById('kuesionerForm');
+
+    if (btnLogoutTop) {
+      if (isDemoMode) {
+        btnLogoutTop.innerHTML = '← Kembali';
+        btnLogoutTop.style.background = '#eef2ff';
+        btnLogoutTop.style.borderColor = '#c7d2fe';
+        btnLogoutTop.style.color = '#312e81';
+      } else {
+        btnLogoutTop.innerHTML = '🚪 Logout';
+        btnLogoutTop.style.background = '';
+        btnLogoutTop.style.borderColor = '';
+        btnLogoutTop.style.color = '';
+      }
+    }
+
+    if (sessionSub) {
+      sessionSub.textContent = isDemoMode
+        ? 'Mode Pratinjau (Hanya Lihat — Pengisian Dinonaktifkan)'
+        : 'Sesi Petugas Pembimbing Kemasyarakatan Aktif';
+    }
+
+    if (demoBanner) {
+      demoBanner.style.display = isDemoMode ? 'flex' : 'none';
+    }
+
+    if (btnMulai) {
+      btnMulai.disabled = isDemoMode;
+      btnMulai.title = isDemoMode ? 'Pengisian dinonaktifkan pada Mode Demo' : '';
+    }
+
+    if (btnDaftar) {
+      btnDaftar.disabled = isDemoMode;
+      btnDaftar.style.opacity = isDemoMode ? '0.55' : '1';
+      btnDaftar.title = isDemoMode ? 'Daftar kuesioner pribadi hanya untuk petugas yang login' : '';
+    }
+
+    if (btnCetakDash) {
+      btnCetakDash.disabled = isDemoMode;
+      btnCetakDash.style.opacity = isDemoMode ? '0.55' : '1';
+      btnCetakDash.title = isDemoMode ? 'Fitur cetak dinonaktifkan pada Mode Demo' : '';
+    }
+
+    if (btnCetakAtas) {
+      btnCetakAtas.disabled = isDemoMode;
+      btnCetakAtas.style.opacity = isDemoMode ? '0.55' : '1';
+    }
+
+    if (btnSubmit) {
+      btnSubmit.disabled = isDemoMode;
+    }
+
+    if (formEl) {
+      formEl.querySelectorAll('input, select, textarea').forEach(el => {
+        el.disabled = isDemoMode;
+      });
+    }
+  }
 
   // Muat logo lokal (favicon.png & pemasyarakatan.png) secara otomatis bila tersedia di server hosting
   (function tryLoadLocalLogos() {
@@ -2643,6 +2727,20 @@
     const elDisplayNama = document.getElementById('displayNamaPK');
     if (elDisplayNama) {
       elDisplayNama.innerText = namaPK || "Petugas";
+    }
+
+    if (isDemoMode) {
+      const elDashResponden = document.getElementById('dashResponden');
+      if (elDashResponden) elDashResponden.innerText = "0";
+      const elDashKlasifikasi = document.getElementById('dashKlasifikasi');
+      if (elDashKlasifikasi) {
+        elDashKlasifikasi.innerHTML = renderKartuKlasifikasiPersonal({ "Tangguh": 0, "Adaptif": 0, "Rawan": 0, "Resiko Tinggi": 0 });
+      }
+      const elDashKegiatan = document.getElementById('dashKegiatan');
+      if (elDashKegiatan) {
+        elDashKegiatan.innerHTML = renderKartuKegiatanPersonal([]);
+      }
+      return;
     }
 
     if (!namaPK) {
@@ -2846,6 +2944,7 @@
   }
 
   function pindahKeKuesioner() {
+    if (isDemoMode) return;
     document.getElementById('halamanPengenalan').style.display = 'none';
     document.getElementById('halamanInfografis').style.display = 'none';
     document.getElementById('kuesionerForm').style.display = 'block';
@@ -2994,6 +3093,7 @@
   }
 
   function cetakFormulir() {
+    if (isDemoMode) return;
     document.body.classList.remove('cetak-dengan-analisis');
     const pengenalanAktif = document.getElementById('halamanPengenalan').style.display;
     const formAktif = document.getElementById('kuesionerForm').style.display;
@@ -3033,6 +3133,7 @@
   }
 
   function cetakHasilKuesioner() {
+    if (isDemoMode) return;
     if (dataTerakhirDilihat) {
       isiFormDanAnalisisUntukCetak(dataTerakhirDilihat);
     } else {
@@ -3185,6 +3286,52 @@
           tangguh: 'Memuat...', adaptif: 'Memuat...', rawan: 'Memuat...', resiko: 'Memuat...'
         });
       }
+    }
+
+    if (isDemoMode) {
+      if (tbodyRekap) {
+        if (tampilkanKolomBapas) {
+          let emptyRows = `<tr><td colspan="10" style="background: #eef2ff; color: #1e1b4b; font-weight: 800; font-size: 12px; text-align: left; padding: 10px 15px;">${kanwilValue}</td></tr>`;
+          dataKanwilRekap[kanwilValue].forEach((namaBapas, idx) => {
+            emptyRows += buatBarisRekapHTML({
+              isFirst: idx === 0,
+              namaBapas: namaBapas,
+              klien: 0, responden: 0, awal: 0, monitor: 0,
+              tangguh: 0, adaptif: 0, rawan: 0, resiko: 0
+            });
+          });
+          tbodyRekap.innerHTML = emptyRows;
+        } else {
+          tbodyRekap.innerHTML = buatBarisRekapHTML({
+            isFirst: true,
+            namaBapas: null,
+            klien: 0, responden: 0, awal: 0, monitor: 0,
+            tangguh: 0, adaptif: 0, rawan: 0, resiko: 0
+          });
+        }
+        tbodyRekap.querySelectorAll('.btn-copy').forEach(b => { b.disabled = true; });
+      }
+      document.getElementById('body-klasifikasi-wilayah').innerHTML = `
+        <tr>
+          <td style="font-weight: 700; background: #f8fafc; color: #1e1b4b; text-align: center; font-size: 11px; padding: 12px 5px;">Lingkungan Tangguh<br><span style="font-weight: normal; font-size: 10px; color: var(--text-muted);">(Skor IKM : 81 - 100%)</span></td>
+          <td style="text-align: left; padding-left: 15px; font-weight: 600; font-size: 12px; color: #1e293b;">-</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; background: #f8fafc; color: #1e1b4b; text-align: center; font-size: 11px; padding: 12px 5px;">Lingkungan Adaptif<br><span style="font-weight: normal; font-size: 10px; color: var(--text-muted);">(Skor IKM : 61 - 80%)</span></td>
+          <td style="text-align: left; padding-left: 15px; font-weight: 600; font-size: 12px; color: #1e293b;">-</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; background: #f8fafc; color: #1e1b4b; text-align: center; font-size: 11px; padding: 12px 5px;">Lingkungan Rawan Stigma<br><span style="font-weight: normal; font-size: 10px; color: var(--text-muted);">(Skor IKM : 41 - 60%)</span></td>
+          <td style="text-align: left; padding-left: 15px; font-weight: 600; font-size: 12px; color: #1e293b;">-</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; background: #f8fafc; color: #1e1b4b; text-align: center; font-size: 11px; padding: 12px 5px;">Lingkungan Resiko Tinggi<br><span style="font-weight: normal; font-size: 10px; color: var(--text-muted);">(Skor IKM : &lt;40%)</span></td>
+          <td style="text-align: left; padding-left: 15px; font-weight: 600; font-size: 12px; color: #1e293b;">-</td>
+        </tr>
+      `;
+      document.getElementById('btn-copy-kegiatan').style.display = 'none';
+      document.getElementById('container-top-kegiatan').innerHTML = `<div class="stat-box" style="grid-column: 1 / -1;"><p>Data kegiatan tidak ditampilkan pada Mode Demo.</p></div>`;
+      return;
     }
 
     try {
@@ -3433,12 +3580,19 @@
   // --- WINDOW LOAD & INISIASI DARI SUPABASE ---
   window.addEventListener('load', async function() {
     let isLogged = false;
+    let savedDemo = false;
     let savedNamaPK = 'Petugas PK';
     try {
       isLogged = sessionStorage.getItem('isLoggedIn') === 'true';
+      savedDemo = sessionStorage.getItem('isDemoMode') === 'true';
       savedNamaPK = sessionStorage.getItem('namaPK') || 'Petugas PK';
     } catch (e) {}
+    if (savedDemo) {
+      masukModePratinjau();
+      return;
+    }
     if (isLogged) {
+      terapkanStatusModeDemo(false);
       loggedInNamaPK = savedNamaPK;
 
       const welcomeEl = document.getElementById('welcomeUser');
@@ -3685,6 +3839,7 @@
   // --- SUBMIT KUESIONER KE SUPABASE (kkm_responses) ---
   function submitForm(e) {
     e.preventDefault();
+    if (isDemoMode) return;
     const form = e.target;
     const btn = document.getElementById('btnSubmit');
     const pesanDiv = document.getElementById('pesan');
@@ -3908,14 +4063,13 @@
   }
 
   function masukModePratinjau() {
-    const namaPKDemo = "Mohamad Royan";
-    const bapasDemo = "Balai Pemasyarakatan Kelas I Jakarta Timur/Utara";
+    const namaPKDemo = "Pembimbing Kemasyarakatan";
     loggedInNamaPK = namaPKDemo;
     try {
-      sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.removeItem('isLoggedIn');
+      sessionStorage.setItem('isDemoMode', 'true');
       sessionStorage.setItem('namaPK', namaPKDemo);
-      sessionStorage.setItem('bapas', bapasDemo);
-      localStorage.setItem('currentUserNamaPK', namaPKDemo);
+      localStorage.removeItem('currentUserNamaPK');
     } catch (e) {}
 
     const welcomeEl = document.getElementById('welcomeUser');
@@ -3928,7 +4082,8 @@
     document.getElementById('registerPage').style.display = 'none';
     document.getElementById('mainApp').style.display = 'block';
 
-    applyUserDataToForm();
+    terapkanStatusModeDemo(true);
+    kembaliKePengenalan();
     inisialisasiDashboardPersonal();
   }
 
@@ -3993,11 +4148,14 @@
           loggedInNamaPK = namaPKLogin;
 
           try {
+            sessionStorage.removeItem('isDemoMode');
             sessionStorage.setItem('isLoggedIn', 'true');
             sessionStorage.setItem('namaPK', namaPKLogin);
             sessionStorage.setItem('bapas', bapasLogin);
             localStorage.setItem('currentUserNamaPK', namaPKLogin);
           } catch (e) {}
+
+          terapkanStatusModeDemo(false);
 
           const welcomeEl = document.getElementById('welcomeUser');
           if (welcomeEl) welcomeEl.innerText = `Selamat Datang, ${namaPKLogin}`;
@@ -4223,10 +4381,13 @@
 
   function logout() {
     try {
+      sessionStorage.removeItem('isDemoMode');
       sessionStorage.removeItem('isLoggedIn');
       sessionStorage.removeItem('namaPK');
       sessionStorage.removeItem('bapas');
+      localStorage.removeItem('currentUserNamaPK');
     } catch (e) {}
+    terapkanStatusModeDemo(false);
     document.getElementById('loginUser').value = '';
     document.getElementById('loginPass').value = '';
 
@@ -4248,6 +4409,7 @@
 
   // --- FUNGSI MEMBUKA DAFTAR KUESIONER SAYA ---
   function bukaDaftarKuesionerSaya() {
+    if (isDemoMode) return;
     const modal = document.getElementById('modalDaftarSaya');
     const container = document.getElementById('kontenTabelDaftarSaya');
 
@@ -4381,6 +4543,7 @@
   }
 
   function cetakKuesionerKlien(encodedData) {
+    if (isDemoMode) return;
     const data = JSON.parse(decodeURIComponent(encodedData));
     dataTerakhirDilihat = data;
     isiFormDanAnalisisUntukCetak(data);
